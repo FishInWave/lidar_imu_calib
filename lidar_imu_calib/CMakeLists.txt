@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   tf
   rosbag
+  ndt_omp
 )
 
 find_package(cmake_modules REQUIRED)
@@ -43,6 +44,6 @@ link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
 add_library(calib src/lib/calibExRLidar2Imu.cpp)
-target_link_libraries(calib ${catkin_LIBRARIES} ${PCL_LIBRARIES} ndt_omp)
+target_link_libraries(calib ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 add_executable(calib_exR_lidar2imu_node src/calib_exR_lidar2imu_node.cpp)
 target_link_libraries(calib_exR_lidar2imu_node calib)
